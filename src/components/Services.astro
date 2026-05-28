@@ -1,0 +1,65 @@
+---
+const services = [
+  {
+    title: 'Personal Training',
+    description:
+      'One-on-one programming built around your specific goals, current fitness level, and schedule. Every session is intentional — no filler, no guesswork.',
+    icon: `<path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>`,
+  },
+  {
+    title: 'Injury Recovery & Prevention',
+    description:
+      'Sal specializes in designing programs that work around existing injuries while actively rebuilding strength and reducing the risk of future ones. Your safety comes first.',
+    icon: `<path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>`,
+  },
+  {
+    title: 'Martial Arts Training',
+    description:
+      'Learn from a practitioner with real competitive experience. Whether for fitness, self-defence, or discipline — Sal breaks down fundamentals in a safe, structured environment.',
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>`,
+    stroke: true,
+  },
+  {
+    title: 'Health & Wellness Coaching',
+    description:
+      'Sal takes a holistic view of your wellbeing — incorporating lifestyle guidance, exercise planning, and awareness around nutrition to help you build sustainable, healthy habits.',
+    icon: `<path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>`,
+  },
+];
+---
+
+<section id="services" class="py-24 bg-dark">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-16">
+      <p class="text-brand text-xs font-semibold tracking-widest uppercase mb-3">What Sal Offers</p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-5">Services</h2>
+      <p class="text-white/50 text-lg max-w-2xl mx-auto">
+        Every service is tailored to the person in front of him. No cookie-cutter plans — just
+        thoughtful, effective training designed around your body and your goals.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-6 mb-12">
+      {services.map(({ title, description, icon, stroke }) => (
+        <div class="group bg-dark-alt border border-white/8 rounded-2xl p-8 hover:border-brand/40 hover:bg-white/[0.03] transition-all duration-300">
+          <div class="w-12 h-12 bg-brand/15 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand/25 transition-colors">
+            <svg class="w-6 h-6 text-brand" fill={stroke ? 'none' : 'currentColor'} stroke={stroke ? 'currentColor' : 'none'} viewBox="0 0 24 24" set:html={icon}/>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">{title}</h3>
+          <p class="text-white/55 leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Pricing note -->
+    <div class="text-center bg-brand/10 border border-brand/20 rounded-2xl px-8 py-8">
+      <p class="text-brand font-semibold text-sm tracking-widest uppercase mb-3">Pricing</p>
+      <p class="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
+        Rates are flexible and depend on your location, preferred gym, session frequency, and
+        training goals. <a href="#contact" class="text-brand hover:text-brand-light underline underline-offset-2 transition-colors">Get in touch</a> to discuss a plan that works for you.
+      </p>
+    </div>
+
+  </div>
+</section>

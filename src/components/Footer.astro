@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-dark border-t border-white/8">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+      <div class="text-center md:text-left">
+        <p class="text-white font-bold text-lg tracking-widest" style="font-family: 'Oswald', sans-serif;">
+          SAL MODICA
+        </p>
+        <p class="text-white/40 text-sm mt-1">Personal Trainer · Brampton, Ontario</p>
+      </div>
+
+      <nav class="flex items-center gap-6 text-xs font-medium tracking-widest uppercase text-white/40">
+        <a href="#about"        class="hover:text-white/80 transition-colors">About</a>
+        <a href="#services"     class="hover:text-white/80 transition-colors">Services</a>
+        <a href="#testimonials" class="hover:text-white/80 transition-colors">Testimonials</a>
+        <a href="#contact"      class="hover:text-white/80 transition-colors">Contact</a>
+      </nav>
+
+      <p class="text-white/25 text-xs">
+        &copy; {year} Sal Modica. All rights reserved.
+      </p>
+
+    </div>
+  </div>
+</footer>

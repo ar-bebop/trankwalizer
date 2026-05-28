@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+/*
+  SITE THEME — edit these variables to restyle the whole site.
+  All brand colors, backgrounds, and accents are defined here.
+*/
+@theme {
+  --color-brand:       #0d9488; /* teal — primary accent           */
+  --color-brand-dark:  #0f766e; /* teal darker — hover/active      */
+  --color-brand-light: #14b8a6; /* teal lighter — highlights       */
+  --color-dark:        #0f172a; /* deepest background (hero/footer)*/
+  --color-dark-alt:    #1e293b; /* alternate section background    */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--color-dark);
+    color: #f1f5f9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.025em;
+  }
+}

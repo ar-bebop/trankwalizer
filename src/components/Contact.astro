@@ -1,0 +1,162 @@
+---
+/*
+  Web3Forms setup:
+  1. Go to https://web3forms.com/
+  2. Enter salmodicabusiness@outlook.com to receive an access key
+  3. Replace YOUR_WEB3FORMS_ACCESS_KEY below with the key from the email they send
+*/
+const WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+---
+
+<section id="contact" class="py-24 bg-dark">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Info -->
+      <div>
+        <p class="text-brand text-xs font-semibold tracking-widest uppercase mb-4">Get In Touch</p>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+          Start Your<br/>Journey Today
+        </h2>
+        <p class="text-white/60 text-lg leading-relaxed mb-10">
+          Whether you want to lose weight, build strength, recover from an injury, or just get
+          healthier — Sal puts together a plan that fits <em>your</em> life. Reach out to
+          discuss your goals and get a personalised quote.
+        </p>
+
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <a href="mailto:salmodicabusiness@outlook.com" class="text-white/70 hover:text-brand transition-colors text-sm">
+              salmodicabusiness@outlook.com
+            </a>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <span class="text-white/70 text-sm">Brampton, Ontario</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
+        <form id="contact-form" class="space-y-6">
+          <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+          <input type="hidden" name="subject" value="New training inquiry — trankwalizer.fit" />
+          <!-- Honeypot to block bots -->
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" aria-hidden="true" />
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Your full name"
+                class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="phone" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">
+              Phone <span class="text-white/30 normal-case font-normal tracking-normal">(optional)</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+1 (416) 000-0000"
+              class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Tell Sal about your goals, any injuries or conditions, and what you're looking for in a trainer..."
+              class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-4 rounded-lg text-sm tracking-widest uppercase transition-colors"
+          >
+            Send Message
+          </button>
+
+          <p id="form-success" class="hidden text-center text-green-400 text-sm font-medium py-2">
+            Message sent — Sal will be in touch soon.
+          </p>
+          <p id="form-error" class="hidden text-center text-red-400 text-sm font-medium py-2">
+            Something went wrong. Please try emailing directly.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const form       = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn  = document.getElementById('submit-btn') as HTMLButtonElement;
+  const successMsg = document.getElementById('form-success')!;
+  const errorMsg   = document.getElementById('form-error')!;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        form.reset();
+        submitBtn.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+      } else {
+        throw new Error('rejected');
+      }
+    } catch {
+      errorMsg.classList.remove('hidden');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+    }
+  });
+</script>

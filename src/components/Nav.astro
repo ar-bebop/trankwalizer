@@ -1,0 +1,71 @@
+---
+---
+
+<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+    <a href="#" class="text-white font-bold text-lg tracking-widest" style="font-family: 'Oswald', sans-serif;">
+      SAL MODICA
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#about"        class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">About</a>
+      <a href="#services"     class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Services</a>
+      <a href="#testimonials" class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Testimonials</a>
+      <a href="#contact" class="bg-brand hover:bg-brand-dark text-white px-5 py-2 text-sm font-semibold tracking-widest uppercase transition-colors rounded-sm">
+        Contact
+      </a>
+    </nav>
+
+    <button id="nav-toggle" class="md:hidden text-white p-2 -mr-2" aria-label="Toggle navigation">
+      <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-5">
+      <a href="#about"        class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">About</a>
+      <a href="#services"     class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Services</a>
+      <a href="#testimonials" class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Testimonials</a>
+      <a href="#contact" class="bg-brand hover:bg-brand-dark text-white px-5 py-3 text-sm font-semibold tracking-widest uppercase text-center transition-colors rounded-sm">
+        Contact
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const nav       = document.getElementById('site-nav')!;
+  const toggle    = document.getElementById('nav-toggle')!;
+  const menu      = document.getElementById('mobile-menu')!;
+  const iconMenu  = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.classList.add('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+    } else {
+      nav.classList.remove('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
+    }
+  }, { passive: true });
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    iconMenu.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  menu.querySelectorAll('a').forEach(link =>
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    })
+  );
+</script>
