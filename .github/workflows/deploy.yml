@@ -29,6 +29,8 @@ jobs:
           cache: pnpm
       - uses: actions/configure-pages@v5
       - run: pnpm install
+        env:
+          npm_config_minimum_release_age: "0"
       - run: pnpm run build
       - uses: actions/upload-pages-artifact@v3
         with:
