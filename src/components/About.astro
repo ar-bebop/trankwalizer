@@ -34,7 +34,7 @@ const highlights = [
         <div class="relative w-full max-w-sm">
           <!-- PLACEHOLDER: swap this div for an <Image> component with Sal's portrait -->
           <div class="aspect-square bg-dark border border-white/10 rounded-2xl flex flex-col items-center justify-center gap-3">
-            <svg class="w-20 h-20 text-white/10" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-20 h-20 text-white/10" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
             </svg>
             <span class="text-white/20 text-xs tracking-widest uppercase">Sal's photo</span>
@@ -62,7 +62,7 @@ const highlights = [
           {highlights.map(({ label, sub }) => (
             <li class="flex items-start gap-4">
               <div class="w-6 h-6 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-brand" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-3.5 h-3.5 text-brand" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
               </div>
@@ -76,7 +76,7 @@ const highlights = [
 
         <a href="#contact" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 text-sm tracking-widest uppercase transition-colors">
           Work With Sal
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
         </a>
