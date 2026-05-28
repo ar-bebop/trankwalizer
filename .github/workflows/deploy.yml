@@ -15,29 +15,15 @@ concurrency:
   group: pages
   cancel-in-progress: false
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: withastro/action@v6
         with:
           node-version: 24
-          cache: pnpm
-      - uses: actions/configure-pages@v5
-      - run: pnpm install
-        env:
-          PNPM_CONFIG_MINIMUM_RELEASE_AGE: 0
-      - run: pnpm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist/
+          package-manager: pnpm@latest
 
   deploy:
     needs: build
@@ -47,4 +33,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
