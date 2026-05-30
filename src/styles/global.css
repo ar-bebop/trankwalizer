@@ -6,15 +6,22 @@
   Edit these tokens to restyle the whole site.
 */
 @theme {
-  /* palette — dark */
-  --color-paper:      #0a0908; /* page black — primary background      */
-  --color-paper-dim:  #110f0d; /* alternate section background         */
-  --color-paper-deep: #29241f; /* faint — oversized ghost numbers      */
-  --color-panel:      #16120e; /* lifted card / panel surface          */
+  /* palette — dark (neutrals carry a faint red warmth so black reads
+     intentional, never clinical grey; red itself only ever used SOLID) */
+  --color-paper:      #0b0807; /* page black — primary background      */
+  --color-paper-dim:  #130d0c; /* alternate section background         */
+  --color-paper-deep: #2c2420; /* faint — oversized ghost numbers      */
+  --color-panel:      #1b1310; /* lifted card / panel surface          */
   --color-ink:        #f2ede3; /* bone — primary text & all borders    */
   --color-ink-soft:   #9a9286; /* muted warm grey — secondary text     */
-  --color-blaze:      #ff4a1f; /* signal orange — the one accent       */
-  --color-blaze-dark: #e2360f; /* blaze hover/active                   */
+  /* ACCENT — the one red. Swap the two lines below to test alternates:
+       B true red    #ff2436 / #db1c2c
+       C signal red  #ff174a / #d6123e
+       D crimson     #e11d2e / #c01526
+       E blood red   #d11a2a / #ad1422   (active)
+     Low green channel keeps photo shadows crimson (not brown) under multiply. */
+  --color-blaze:      #d11a2a; /* blood red — the one accent           */
+  --color-blaze-dark: #ad1422; /* red hover/active                     */
   --color-bone:       #f6f2e9; /* lightest — text on blaze/light chips */
 
   /* type roles */
