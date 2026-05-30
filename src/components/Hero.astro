@@ -75,9 +75,11 @@ import heroPhoto from '../assets/sal/sal_3.png';
   <!-- marquee floor -->
   <div class="relative z-10 border-y-2 border-ink bg-ink text-paper overflow-hidden">
     <div class="marquee py-3">
-      {Array.from({ length: 2 }).map(() => (
-        <div class="flex items-center shrink-0">
-          {['Strength', 'Injury Recovery', 'Martial Arts', 'Conditioning', 'Wellness Coaching', 'Discipline'].map((w) => (
+      {Array.from({ length: 2 }).map((_, half) => (
+        <div class="flex items-center shrink-0" aria-hidden={half === 1 ? 'true' : undefined}>
+          {Array.from({ length: 3 }).flatMap(() =>
+            ['Strength', 'Injury Recovery', 'Martial Arts', 'Conditioning', 'Wellness Coaching', 'Discipline']
+          ).map((w) => (
             <span class="flex items-center">
               <span class="font-display text-2xl tracking-wide px-6">{w}</span>
               <span class="text-blaze text-xl">✶</span>

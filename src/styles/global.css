@@ -132,7 +132,7 @@
 .marquee {
   display: flex;
   width: max-content;
-  animation: marquee 28s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 .marquee:hover { animation-play-state: paused; }
 @keyframes marquee {
