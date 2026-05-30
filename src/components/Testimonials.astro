@@ -4,6 +4,8 @@ import type { ImageMetadata } from 'astro';
 
 import gabrielPhoto  from '../assets/testimonials/gabriel_r.jpeg';
 import shaylahPhoto  from '../assets/testimonials/shaylah_d.jpg';
+import alexandrePhoto from '../assets/testimonials/alexandre_r.jpg';
+import maryPhoto      from '../assets/testimonials/mary_b.jpg';
 
 // LinkedIn icon path
 const linkedinIcon = `<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>`;
@@ -27,6 +29,8 @@ const testimonials: {
       "Sal built a routine around my health condition that I never thought was possible. He helped me regain weight I had lost and gave me a structured approach to exercise and diet that's made managing my diabetes genuinely easier. He took the time to actually understand what I was dealing with.",
     initials: 'AR',
     color: 'bg-teal-700',
+    photo: alexandrePhoto,
+    social: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/ar-a19g/', icon: linkedinIcon },
   },
   {
     name: 'Gabriel R.',
@@ -36,7 +40,7 @@ const testimonials: {
     initials: 'GR',
     color: 'bg-blue-700',
     photo: gabrielPhoto,
-    social: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gabriel-ribeiro-100a59258/', icon: linkedinIcon },
+    social: { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gabrieldribeiro/', icon: linkedinIcon },
   },
   {
     name: 'Shaylah D.',
@@ -55,6 +59,8 @@ const testimonials: {
       "I had tried other trainers before and always ended up with pain or setbacks. Sal was the first one who really listened. He structured everything around my injuries and my age, and somehow made the whole process feel safe. I lost the weight I wanted and I feel better than I have in years.",
     initials: 'MB',
     color: 'bg-rose-700',
+    photo: maryPhoto,
+    social: { label: 'Instagram', href: 'https://www.instagram.com/mmod1970', icon: instagramIcon },
   },
 ];
 ---
