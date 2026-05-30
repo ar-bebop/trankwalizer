@@ -2,90 +2,73 @@
 import { Image } from 'astro:assets';
 import aboutPhoto from '../assets/sal/sal_1.png';
 
-const highlights = [
-  {
-    label: 'canfitpro Certified',
-    sub: 'Nationally recognized personal training certification',
-  },
-  {
-    label: 'Injury-First Approach',
-    sub: 'Every program is designed around your body\'s limitations and needs',
-  },
-  {
-    label: 'Martial Arts Instructor',
-    sub: 'Real experience — teaches his own class at a local gym',
-  },
-  {
-    label: 'Brampton Community Staple',
-    sub: 'Well-known and trusted across multiple gyms in the city',
-  },
+const credentials = [
+  { no: '01', label: 'canfitpro Certified',        sub: 'Nationally recognized personal training certification' },
+  { no: '02', label: 'Injury-First Approach',      sub: 'Every program designed around your body\'s limits and needs' },
+  { no: '03', label: 'Martial Arts Instructor',    sub: 'Real fighting experience — teaches his own class locally' },
+  { no: '04', label: 'Brampton Community Staple',  sub: 'Trusted across multiple gyms throughout the city' },
 ];
 ---
 
-<section id="about" class="py-24 bg-dark-alt">
-  <div class="max-w-6xl mx-auto px-6">
+<section id="about" class="relative py-24 sm:py-32 bg-paper-dim border-t-2 border-ink overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
 
-    <div class="text-center mb-16">
-      <p class="text-brand text-xs font-semibold tracking-widest uppercase mb-3">The Trainer</p>
-      <h2 class="text-4xl md:text-5xl font-bold text-white">About Sal</h2>
+    <!-- section header -->
+    <div class="flex items-end justify-between gap-4 border-b-2 border-ink pb-5 mb-12">
+      <h2 class="font-display text-6xl sm:text-7xl lg:text-8xl text-ink">About<br class="sm:hidden"/> Sal</h2>
+      <span class="meta text-ink-soft pb-2 hidden sm:block">No. 02 — Profile</span>
     </div>
 
-    <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
-      <!-- Photo -->
-      <div class="flex justify-center">
-        <div class="relative w-full max-w-sm">
-          <div class="relative aspect-[7/12] rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50">
+      <!-- portrait -->
+      <div class="lg:col-span-5">
+        <div class="relative max-w-sm mx-auto lg:mx-0">
+          <div class="duotone border-2 border-ink shadow-hard aspect-[7/9] overflow-hidden">
             <Image
               src={aboutPhoto}
               alt="Sal Modica training a client"
               widths={[320, 480, 640]}
-              sizes="(max-width: 640px) 90vw, 24rem"
-              class="w-full h-full object-cover object-center"
+              sizes="(max-width: 640px) 90vw, 22rem"
+              class="w-full h-full object-cover object-top"
             />
-            <div class="absolute inset-0 bg-gradient-to-tr from-brand/15 via-transparent to-transparent pointer-events-none"></div>
           </div>
-          <div class="absolute -top-4 -left-4 w-16 h-16 border-t-2 border-l-2 border-brand/40 rounded-tl-2xl"></div>
-          <div class="absolute -bottom-4 -right-4 w-28 h-28 bg-brand/10 rounded-2xl -z-10"></div>
+          <div class="absolute -bottom-4 -right-4 bg-blaze text-bone border-2 border-ink px-4 py-2 rotate-2">
+            <span class="meta">Yrs in the trade</span>
+          </div>
         </div>
       </div>
 
-      <!-- Content -->
-      <div>
-        <p class="text-white/65 text-lg leading-relaxed mb-6">
-          Sal Modica is a <span class="text-white font-semibold">canfitpro certified personal trainer</span> based
-          in Brampton, Ontario, with years of hands-on experience across multiple local gyms.
-          His dedication to his clients and genuine investment in their outcomes has made him
-          a trusted name in the Brampton fitness community.
+      <!-- copy + credentials -->
+      <div class="lg:col-span-7">
+        <p class="text-xl leading-relaxed text-ink mb-6">
+          Sal Modica is a <span class="font-semibold">canfitpro certified personal trainer</span> based in
+          Brampton, Ontario, with years of hands-on experience across multiple local gyms. His genuine
+          investment in client outcomes has made him a <span class="font-serif italic">trusted name</span> in the
+          Brampton fitness community.
         </p>
-        <p class="text-white/65 text-lg leading-relaxed mb-10">
-          Beyond the weight room, Sal is a martial artist with real fighting
-          experience who teaches his own class at a local martial arts gym. That same
-          discipline and attention to form shapes every training plan he builds — whether
-          you're brand new to fitness or a seasoned athlete chasing the next level.
+        <p class="text-lg leading-relaxed text-ink-soft mb-10">
+          Beyond the weight room, Sal is a martial artist with real fighting experience who teaches his own
+          class at a local gym. That same discipline and attention to form shapes every plan he builds —
+          whether you're brand new or a seasoned athlete chasing the next level.
         </p>
 
-        <ul class="space-y-5 mb-10">
-          {highlights.map(({ label, sub }) => (
-            <li class="flex items-start gap-4">
-              <div class="w-6 h-6 rounded-full bg-brand/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3.5 h-3.5 text-brand" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
+        <!-- credential spec sheet -->
+        <div class="border-2 border-ink bg-panel shadow-hard-sm divide-y-2 divide-ink/10">
+          {credentials.map(({ no, label, sub }) => (
+            <div class="group flex items-center gap-5 px-5 py-4 hover:bg-blaze hover:text-bone transition-colors">
+              <span class="meta text-blaze group-hover:text-bone shrink-0">{no}</span>
+              <div class="min-w-0">
+                <p class="font-display text-xl tracking-wide leading-none">{label}</p>
+                <p class="text-sm text-ink-soft group-hover:text-bone/80 mt-1">{sub}</p>
               </div>
-              <div>
-                <p class="text-white font-semibold text-sm">{label}</p>
-                <p class="text-white/45 text-sm mt-0.5">{sub}</p>
-              </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
 
-        <a href="#contact" class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-4 text-sm tracking-widest uppercase transition-colors">
+        <a href="#contact" class="group mt-8 inline-flex items-center gap-2 border-2 border-ink bg-ink text-paper meta px-7 py-4 hover:bg-blaze hover:text-bone hover:border-blaze transition-colors">
           Work With Sal
-          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-          </svg>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
       </div>
 

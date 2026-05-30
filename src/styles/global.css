@@ -1,15 +1,27 @@
 @import "tailwindcss";
 
 /*
-  SITE THEME — edit these variables to restyle the whole site.
-  All brand colors, backgrounds, and accents are defined here.
+  SITE THEME — "THE TRAINING LOG" (Blackout)
+  Editorial brutalist athletic, dark. Ink-black page, bone structure, one blaze accent.
+  Edit these tokens to restyle the whole site.
 */
 @theme {
-  --color-brand:       #0d9488; /* teal — primary accent           */
-  --color-brand-dark:  #0f766e; /* teal darker — hover/active      */
-  --color-brand-light: #14b8a6; /* teal lighter — highlights       */
-  --color-dark:        #0f172a; /* deepest background (hero/footer)*/
-  --color-dark-alt:    #1e293b; /* alternate section background    */
+  /* palette — dark */
+  --color-paper:      #0a0908; /* page black — primary background      */
+  --color-paper-dim:  #110f0d; /* alternate section background         */
+  --color-paper-deep: #29241f; /* faint — oversized ghost numbers      */
+  --color-panel:      #16120e; /* lifted card / panel surface          */
+  --color-ink:        #f2ede3; /* bone — primary text & all borders    */
+  --color-ink-soft:   #9a9286; /* muted warm grey — secondary text     */
+  --color-blaze:      #ff4a1f; /* signal orange — the one accent       */
+  --color-blaze-dark: #e2360f; /* blaze hover/active                   */
+  --color-bone:       #f6f2e9; /* lightest — text on blaze/light chips */
+
+  /* type roles */
+  --font-sans:    'Archivo', system-ui, sans-serif;
+  --font-display: 'Anton', 'Archivo', sans-serif;
+  --font-serif:   'Fraunces', Georgia, serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, monospace;
 }
 
 @layer base {
@@ -18,14 +30,137 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background-color: var(--color-dark);
-    color: #f1f5f9;
+    font-family: var(--font-sans);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Oswald', sans-serif;
-    letter-spacing: 0.025em;
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  ::selection {
+    background: var(--color-blaze);
+    color: var(--color-bone);
   }
 }
+
+/* ---------------------------------------------------------------- *
+ *  Atmosphere: paper grain overlay (fixed, behind everything)
+ * ---------------------------------------------------------------- */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------- *
+ *  Brutalist building blocks
+ * ---------------------------------------------------------------- */
+
+/* hard, blur-less offset shadow (ink = bone, reads as a light edge on black) */
+.shadow-hard      { box-shadow: 6px 6px 0 0 var(--color-ink); }
+.shadow-hard-sm   { box-shadow: 4px 4px 0 0 var(--color-ink); }
+.shadow-hard-blaze{ box-shadow: 6px 6px 0 0 var(--color-blaze); }
+
+/* outlined / stroke display text */
+.stroke-ink {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--color-ink);
+  text-stroke: 2px var(--color-ink);
+}
+@media (min-width: 768px) {
+  .stroke-ink { -webkit-text-stroke-width: 2.5px; text-stroke-width: 2.5px; }
+}
+
+/* monospace meta label / tag */
+.meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------------- *
+ *  Duotone photo treatment — blaze-tinted, reveals colour on hover
+ * ---------------------------------------------------------------- */
+.duotone {
+  position: relative;
+  background: var(--color-blaze);
+  isolation: isolate;
+}
+.duotone img {
+  filter: grayscale(1) contrast(1.12) brightness(0.92);
+  mix-blend-mode: multiply;
+  transition: filter 0.5s ease, mix-blend-mode 0s 0.5s;
+}
+.duotone::after { /* dark floor so the image grounds into the black page */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(transparent 50%, color-mix(in srgb, var(--color-paper) 75%, transparent));
+}
+.group:hover .duotone img,
+.duotone:hover img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  mix-blend-mode: normal;
+}
+
+/* ---------------------------------------------------------------- *
+ *  Marquee strip
+ * ---------------------------------------------------------------- */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+.marquee:hover { animation-play-state: paused; }
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------------------------------------------------------------- *
+ *  Entrance: staggered reveal on load
+ * ---------------------------------------------------------------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.rise {
+  opacity: 0;
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.rise-1 { animation-delay: 0.05s; }
+.rise-2 { animation-delay: 0.16s; }
+.rise-3 { animation-delay: 0.27s; }
+.rise-4 { animation-delay: 0.38s; }
+.rise-5 { animation-delay: 0.49s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; opacity: 1; }
+  .marquee { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* link underline that grows from left */
+.link-grow {
+  background-image: linear-gradient(var(--color-blaze), var(--color-blaze));
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease;
+}
+.link-grow:hover { background-size: 100% 2px; }

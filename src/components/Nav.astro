@@ -1,65 +1,60 @@
 ---
 ---
 
-<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+<header id="site-nav" class="fixed top-0 left-0 right-0 z-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div id="nav-bar" class="mt-3 flex items-center justify-between border-2 border-ink bg-paper/90 backdrop-blur-sm px-4 sm:px-5 h-14 transition-shadow duration-300">
 
-    <a href="#" class="text-white font-bold text-lg tracking-widest" style="font-family: 'Oswald', sans-serif;">
-      SAL MODICA
-    </a>
-
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="#about"        class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">About</a>
-      <a href="#services"     class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Services</a>
-      <a href="#gallery"      class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Gallery</a>
-      <a href="#testimonials" class="text-white/70 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Testimonials</a>
-      <a href="#contact" class="bg-brand hover:bg-brand-dark text-white px-5 py-2 text-sm font-semibold tracking-widest uppercase transition-colors rounded-sm">
-        Contact
+      <a href="#top" aria-label="Sal Modica — back to top" class="group flex items-baseline gap-2">
+        <span class="font-display text-2xl leading-none tracking-tight text-ink">SAL MODICA</span>
+        <span class="meta text-blaze hidden sm:inline">/ PT</span>
       </a>
-    </nav>
 
-    <button
-      id="nav-toggle"
-      class="md:hidden text-white p-2 -mr-2"
-      aria-label="Toggle navigation"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <svg id="icon-menu" class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-      <svg id="icon-close" class="w-6 h-6 hidden" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
+      <nav class="hidden md:flex items-center gap-7">
+        <a href="#about"        class="meta text-ink/70 hover:text-ink link-grow transition-colors">01 About</a>
+        <a href="#services"     class="meta text-ink/70 hover:text-ink link-grow transition-colors">02 Services</a>
+        <a href="#gallery"      class="meta text-ink/70 hover:text-ink link-grow transition-colors">03 Gym</a>
+        <a href="#testimonials" class="meta text-ink/70 hover:text-ink link-grow transition-colors">04 Proof</a>
+        <a href="#contact" class="meta border-2 border-ink bg-ink text-paper px-4 py-2 hover:bg-blaze hover:text-bone hover:border-blaze transition-colors">Book →</a>
+      </nav>
 
-  <nav id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md border-t border-white/10" aria-label="Mobile navigation">
-    <div class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-5">
-      <a href="#about"        class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">About</a>
-      <a href="#services"     class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Services</a>
-      <a href="#gallery"      class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Gallery</a>
-      <a href="#testimonials" class="text-white/80 hover:text-white text-sm font-medium tracking-widest uppercase transition-colors">Testimonials</a>
-      <a href="#contact" class="bg-brand hover:bg-brand-dark text-white px-5 py-3 text-sm font-semibold tracking-widest uppercase text-center transition-colors rounded-sm">
-        Contact
-      </a>
+      <button
+        id="nav-toggle"
+        class="md:hidden text-ink p-1 -mr-1"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="icon-menu" class="w-7 h-7" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="square" stroke-width="2.5" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+        <svg id="icon-close" class="w-7 h-7 hidden" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="square" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
     </div>
-  </nav>
+
+    <nav id="mobile-menu" class="hidden md:hidden mt-2 border-2 border-ink bg-panel shadow-hard" aria-label="Mobile navigation">
+      <div class="flex flex-col divide-y-2 divide-ink/10">
+        <a href="#about"        class="meta text-ink px-5 py-4 hover:text-blaze transition-colors">01 — About</a>
+        <a href="#services"     class="meta text-ink px-5 py-4 hover:text-blaze transition-colors">02 — Services</a>
+        <a href="#gallery"      class="meta text-ink px-5 py-4 hover:text-blaze transition-colors">03 — In The Gym</a>
+        <a href="#testimonials" class="meta text-ink px-5 py-4 hover:text-blaze transition-colors">04 — Proof</a>
+        <a href="#contact" class="meta bg-blaze text-bone px-5 py-4 text-center hover:bg-blaze-dark transition-colors">Book A Session →</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <script>
-  const nav       = document.getElementById('site-nav')!;
+  const bar       = document.getElementById('nav-bar')!;
   const toggle    = document.getElementById('nav-toggle')!;
   const menu      = document.getElementById('mobile-menu')!;
   const iconMenu  = document.getElementById('icon-menu')!;
   const iconClose = document.getElementById('icon-close')!;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      nav.classList.add('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
-    } else {
-      nav.classList.remove('bg-dark/95', 'backdrop-blur-md', 'shadow-lg');
-    }
+    bar.classList.toggle('shadow-hard-sm', window.scrollY > 40);
   }, { passive: true });
 
   function setMenuOpen(open: boolean) {

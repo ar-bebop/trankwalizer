@@ -1,10 +1,4 @@
 ---
-/*
-  Web3Forms setup:
-  1. Go to https://web3forms.com/
-  2. Enter salmodicabusiness@outlook.com to receive an access key
-  3. Replace YOUR_WEB3FORMS_ACCESS_KEY below with the key from the email they send
-*/
 const WEB3FORMS_KEY = 'ac198d0a-b0dd-4d3f-9860-bf9aab875b80';
 
 const socials = [
@@ -12,45 +6,37 @@ const socials = [
   { label: 'YouTube',   href: 'https://www.youtube.com/@trankwalizer',    icon: `<path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>` },
   { label: 'X',         href: 'https://x.com/trankwalizer',               icon: `<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>` },
 ];
+
+const inputClass = "w-full bg-paper border-2 border-ink px-4 py-3 text-ink placeholder-ink/35 text-sm focus:outline-none focus:bg-paper focus:shadow-hard-sm transition-shadow";
+const labelClass = "meta block text-ink-soft mb-2";
 ---
 
-<section id="contact" class="py-24 bg-dark">
-  <div class="max-w-6xl mx-auto px-6">
+<section id="contact" class="relative py-24 sm:py-32 bg-paper-dim text-ink border-t-2 border-ink overflow-hidden">
+  <!-- oversized ghost word -->
+  <span aria-hidden="true" class="pointer-events-none select-none absolute -bottom-10 -left-4 font-display text-[28vw] leading-none text-ink/[0.04]">BEGIN</span>
 
-    <div class="grid lg:grid-cols-2 gap-16 items-start">
+  <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-      <!-- Info -->
-      <div>
-        <p class="text-brand text-xs font-semibold tracking-widest uppercase mb-4">Get In Touch</p>
-        <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-          Start Your<br/>Journey Today
+      <!-- info -->
+      <div class="lg:col-span-5">
+        <span class="meta text-blaze block mb-4">No. 06 — Get In Touch</span>
+        <h2 class="font-display text-6xl sm:text-7xl lg:text-8xl text-ink mb-6">
+          Start Your<br/><span class="text-blaze">Journey</span>
         </h2>
-        <p class="text-white/60 text-lg leading-relaxed mb-10">
-          Whether you want to lose weight, build strength, recover from an injury, or just get
-          healthier — Sal puts together a plan that fits <em>your</em> life. Reach out to
-          discuss your goals and get a personalised quote.
+        <p class="text-lg leading-relaxed text-ink-soft mb-10 max-w-md">
+          Lose weight, build strength, recover from injury, or just get healthier — Sal puts together a
+          plan that fits <span class="font-serif italic text-ink">your</span> life. Reach out for a personalised quote.
         </p>
 
-        <div class="space-y-5">
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-brand" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-            </div>
-            <a href="mailto:salmodicabusiness@outlook.com" class="text-white/70 hover:text-brand transition-colors text-sm">
-              salmodicabusiness@outlook.com
-            </a>
-          </div>
-
-          <div class="flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-brand/15 flex items-center justify-center flex-shrink-0">
-              <svg class="w-5 h-5 text-brand" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-              </svg>
-            </div>
-            <span class="text-white/70 text-sm">Brampton, Ontario</span>
+        <div class="space-y-4">
+          <a href="mailto:salmodicabusiness@outlook.com" class="group flex items-center gap-4 border-2 border-ink/20 hover:border-blaze p-4 transition-colors">
+            <span class="meta text-blaze">@</span>
+            <span class="text-sm text-ink-soft group-hover:text-ink break-all">salmodicabusiness@outlook.com</span>
+          </a>
+          <div class="flex items-center gap-4 border-2 border-ink/20 p-4">
+            <span class="meta text-blaze">◎</span>
+            <span class="text-sm text-ink-soft">Brampton, Ontario</span>
           </div>
         </div>
 
@@ -61,7 +47,7 @@ const socials = [
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Sal Modica on ${label}`}
-              class="w-10 h-10 rounded-full bg-white/5 hover:bg-brand/20 flex items-center justify-center text-white/40 hover:text-brand transition-all"
+              class="w-11 h-11 border-2 border-ink/30 flex items-center justify-center text-ink-soft hover:bg-blaze hover:border-blaze hover:text-bone transition-colors"
             >
               <svg class="w-4 h-4" aria-hidden="true" fill="currentColor" viewBox="0 0 24 24" set:html={icon}/>
             </a>
@@ -69,79 +55,48 @@ const socials = [
         </div>
       </div>
 
-      <!-- Form -->
-      <div class="bg-white/[0.03] border border-white/10 rounded-2xl p-8">
-        <form id="contact-form" class="space-y-6">
-          <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
-          <input type="hidden" name="subject" value="New training inquiry — trankwalizer.fit" />
-          <!-- Honeypot to block bots -->
-          <input type="checkbox" name="botcheck" class="hidden" style="display:none" aria-hidden="true" />
+      <!-- form -->
+      <div class="lg:col-span-7">
+        <div class="border-2 border-ink bg-panel p-7 sm:p-9 shadow-hard-blaze">
+          <form id="contact-form" class="space-y-6">
+            <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+            <input type="hidden" name="subject" value="New training inquiry — trankwalizer.fit" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none" aria-hidden="true" />
 
-          <div class="grid sm:grid-cols-2 gap-6">
-            <div>
-              <label for="name" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Your full name"
-                class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-              />
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class={labelClass}>Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name" class={inputClass} />
+              </div>
+              <div>
+                <label for="email" class={labelClass}>Email *</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com" class={inputClass} />
+              </div>
             </div>
+
             <div>
-              <label for="email" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="your@email.com"
-                class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-              />
+              <label for="phone" class={labelClass}>Phone <span class="text-bone/40">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (416) 000-0000" class={inputClass} />
             </div>
-          </div>
 
-          <div>
-            <label for="phone" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">
-              Phone <span class="text-white/30 normal-case font-normal tracking-normal">(optional)</span>
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="+1 (416) 000-0000"
-              class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-            />
-          </div>
+            <div>
+              <label for="message" class={labelClass}>Message *</label>
+              <textarea id="message" name="message" required rows="5" placeholder="Tell Sal about your goals, any injuries or conditions, and what you're looking for..." class={`${inputClass} resize-none`}></textarea>
+            </div>
 
-          <div>
-            <label for="message" class="block text-xs font-semibold tracking-widest uppercase text-white/60 mb-2">Message *</label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows="5"
-              placeholder="Tell Sal about your goals, any injuries or conditions, and what you're looking for in a trainer..."
-              class="w-full bg-white/5 border border-white/15 rounded-lg px-4 py-3 text-white placeholder-white/25 text-sm focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors resize-none"
-            ></textarea>
-          </div>
+            <button
+              type="submit"
+              id="submit-btn"
+              class="group w-full border-2 border-ink bg-blaze text-bone meta py-4 hover:bg-ink hover:text-paper transition-colors flex items-center justify-center gap-2"
+            >
+              Send Message
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </button>
 
-          <button
-            type="submit"
-            id="submit-btn"
-            class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-4 rounded-lg text-sm tracking-widest uppercase transition-colors"
-          >
-            Send Message
-          </button>
-
-          <p id="form-success" class="hidden text-center text-green-400 text-sm font-medium py-2">
-            Message sent — Sal will be in touch soon.
-          </p>
-          <p id="form-error" class="hidden text-center text-red-400 text-sm font-medium py-2">
-            Something went wrong. Please try emailing directly.
-          </p>
-        </form>
+            <p id="form-success" class="hidden text-center meta text-blaze py-2">✓ Message sent — Sal will be in touch soon.</p>
+            <p id="form-error" class="hidden text-center meta text-bone py-2 bg-blaze/20">✕ Something went wrong. Please email directly.</p>
+          </form>
+        </div>
       </div>
 
     </div>
