@@ -25,6 +25,34 @@ const services = [
       'A holistic view of your wellbeing — lifestyle guidance, exercise planning, and nutrition awareness to build sustainable, healthy habits.',
   },
 ];
+
+const formats = [
+  {
+    no: '01',
+    label: 'Routine Writing',
+    sub: 'A custom program built for you — train on your own schedule, no sessions required.',
+  },
+  {
+    no: '02',
+    label: 'In-Person Sessions',
+    sub: 'Hands-on coaching at the location you choose: your gym, your home, wherever you train.',
+  },
+  {
+    no: '03',
+    label: 'Remote Sessions',
+    sub: 'Live virtual coaching — same attention, wherever you are.',
+  },
+  {
+    no: '04',
+    label: 'Consultations',
+    sub: 'A one-off assessment, form check, or programming advice when that\'s all you need.',
+  },
+  {
+    no: '05',
+    label: 'App Programming',
+    sub: 'Routines delivered through a coaching app — primarily Everfit, other platforms on request.',
+  },
+];
 ---
 
 <section id="services" class="relative py-24 sm:py-32 bg-paper border-t-2 border-ink">
@@ -54,6 +82,31 @@ const services = [
           <span class="meta absolute top-8 right-8 text-ink/0 group-hover:text-bone transition-colors">→</span>
         </div>
       ))}
+    </div>
+
+    <!-- ways to train -->
+    <div class="mt-16 grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+      <div class="lg:col-span-4">
+        <span class="meta text-blaze block mb-3">Ways To Train</span>
+        <h3 class="font-display text-4xl sm:text-5xl text-ink mb-4">Train Your<br/>Way</h3>
+        <p class="text-ink-soft leading-relaxed max-w-sm">
+          Pick one or combine several — most clients mix a few.
+          Every format is shaped around <span class="font-serif italic text-ink">your</span> goals, body, and life.
+        </p>
+      </div>
+
+      <!-- format spec sheet -->
+      <div class="lg:col-span-8 border-2 border-ink bg-panel shadow-hard-sm divide-y-2 divide-ink/10">
+        {formats.map(({ no, label, sub }) => (
+          <div class="group flex items-center gap-5 px-5 py-5 hover:bg-blaze hover:text-bone transition-colors">
+            <span class="meta text-blaze group-hover:text-bone shrink-0">{no}</span>
+            <div class="min-w-0">
+              <p class="font-display text-xl tracking-wide leading-none">{label}</p>
+              <p class="text-sm text-ink-soft group-hover:text-bone/80 mt-1.5">{sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
     <!-- pricing callout -->
